@@ -1,0 +1,300 @@
+/* تخصيص أنماط الأزرار */
+.btn {
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 0;
+  }
+  
+  &:hover:before {
+    width: 300%;
+    height: 300%;
+  }
+  
+  &.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-elegant);
+    
+    &:hover {
+      background-color: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.btn-outline-primary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    
+    &:hover {
+      background-color: var(--color-primary-pale);
+      color: var(--color-primary-dark);
+    }
+  }
+  
+  &.btn-gold {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: white;
+    
+    &:hover {
+      background-color: darken(#F1C40F, 10%);
+      border-color: darken(#F1C40F, 10%);
+    }
+  }
+}
+
+/* تخصيص أنماط البطاقات */
+.card {
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-medium);
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+  }
+  
+  .card-img-top {
+    transition: transform var(--transition-medium);
+  }
+  
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+  
+  .card-footer {
+    background-color: rgba(142, 68, 173, 0.05);
+    border-top: 1px solid rgba(142, 68, 173, 0.1);
+  }
+}
+
+/* تخصيص أنماط النصوص */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  color: var(--color-primary-dark);
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 2rem;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
+  }
+}
+
+/* تخصيص أنماط الصور */
+.product-image {
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    transition: transform var(--transition-medium);
+  }
+  
+  &:hover img {
+    transform: scale(1.1);
+  }
+  
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-small);
+    font-size: 0.8rem;
+    z-index: 1;
+  }
+  
+  .product-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(142, 68, 173, 0.8);
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform var(--transition-fast);
+    display: flex;
+    justify-content: space-around;
+    
+    .action-btn {
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      
+      &:hover {
+        color: var(--color-gold);
+      }
+    }
+  }
+  
+  &:hover .product-actions {
+    transform: translateY(0);
+  }
+}
+
+/* تخصيص أنماط التنقل */
+.main-nav {
+  background-color: white;
+  box-shadow: var(--shadow-card);
+  
+  .nav-link {
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primary);
+      transition: all var(--transition-fast);
+      transform: translateX(-50%);
+    }
+    
+    &:hover, &.active {
+      color: var(--color-primary);
+      
+      &:before {
+        width: 80%;
+      }
+    }
+  }
+}
+
+/* تخصيص أنماط القوائم */
+.category-menu {
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  
+  .category-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(142, 68, 173, 0.1);
+    transition: all var(--transition-fast);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover, &.active {
+      background-color: var(--color-primary-pale);
+      padding-left: 20px;
+    }
+    
+    a {
+      color: var(--color-primary-dark);
+      display: block;
+      
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* تخصيص أنماط السلايدر */
+.main-slider {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  box-shadow: var(--shadow-elegant);
+  
+  .slider-item {
+    position: relative;
+    
+    .slider-content {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      transform: translateY(-50%);
+      max-width: 500px;
+      
+      h2 {
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        color: white;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+/* تخصيص أنماط التقييمات */
+.rating {
+  color: var(--color-gold);
+}
+
+/* تخصيص أنماط الفوتر */
+.footer {
+  background-color: var(--color-primary-dark);
+  color: white;
+  
+  a {
+    color: var(--color-primary-pale);
+    transition: color var(--transition-fast);
+    
+    &:hover {
+      color: white;
+    }
+  }
+  
+  .social-links {
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      margin-right: 10px;
+      transition: all var(--transition-fast);
+      
+      &:hover {
+        background-color: var(--color-primary);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
